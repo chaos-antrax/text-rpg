@@ -97,7 +97,7 @@ export default function GameInterface({
     if (messages.length === 0) {
       const welcomeMessage: Message = {
         role: "assistant",
-        content: `Welcome, ${profile.display_name}! You find yourself in ${profile.current_location}, ${profile.current_region}. The air is fresh, and adventure awaits. What would you like to do?`,
+        content: `A sudden storm engulfs the region of ${profile.current_location} within ${profile.current_region}. The people of the village were scrambling indoors to avoid the rain and thunder, caught offguard by the sudden change. \n\n Amidst this bustle, a blinding bolt of lightning strikes a nearby mountain range, followed by an illusion of a shattered sky. Soon after, the rain tempestuous weather calmed down as if had merely been raging in a fit of mischief. \n\nUnbeknownst to all, at the crater left by the lightning, a figure of a person slowly stood up from the ground, having descended anew to a grand new world of intrigue. A haunting whisper sounds in the ears of ${profile.display_name}: "Welcome to the realm of Eryndor!"`,
         timestamp: new Date().toISOString(),
       };
       setMessages([welcomeMessage]);
@@ -205,11 +205,13 @@ export default function GameInterface({
       {/* Sidebar */}
       <div
         className={`${
-          sidebarOpen ? "w-80" : "w-0"
-        } transition-all duration-300 border-r border-border overflow-hidden`}
+          sidebarOpen
+            ? "lg:w-80 left-1 lg:left-0"
+            : "lg:w-0 -left-full lg:left-0"
+        } transition-all w-80 lg:max-w-80 rounded-xl top-1 lg:top-0 lg:rounded-none absolute bg-white z-100 lg:relative duration-300 border border-border overflow-hidden`}
       >
         <div className="p-6 space-y-6">
-          <div>
+          <div className="items-end justify-end flex flex-col">
             <h2 className="text-2xl font-bold">{profile.display_name}</h2>
             <p className="text-sm text-muted-foreground">
               Level {profile.level} Adventurer
@@ -352,6 +354,7 @@ export default function GameInterface({
               variant="ghost"
               size="icon"
               onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="z-200"
             >
               {sidebarOpen ? (
                 <X className="h-5 w-5" />
@@ -386,7 +389,7 @@ export default function GameInterface({
                   </div>
                 )}
                 <Card
-                  className={`max-w-2xl ${
+                  className={`max-w-2xl py-0 ${
                     message.role === "user"
                       ? "bg-primary text-primary-foreground"
                       : ""

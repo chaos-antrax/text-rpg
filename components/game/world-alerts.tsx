@@ -101,7 +101,7 @@ export default function WorldAlerts({
   const visibleAlerts = alerts.filter((alert) => !dismissedIds.has(alert.id));
 
   return (
-    <div className="fixed top-4 right-4 z-50 space-y-2 max-w-md">
+    <div className="fixed top-4 right-4 z-50 space-y-2 max-w-md z-200">
       <AnimatePresence>
         {visibleAlerts.map((alert) => (
           <motion.div

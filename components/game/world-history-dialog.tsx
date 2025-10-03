@@ -124,7 +124,7 @@ export default function WorldHistoryDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-3xl max-h-[80vh]">
+      <DialogContent className="max-w-3xl max-h-[80vh] z-200">
         <DialogHeader>
           <DialogTitle>World History</DialogTitle>
           <DialogDescription>
