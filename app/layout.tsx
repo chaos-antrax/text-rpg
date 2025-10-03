@@ -5,9 +5,11 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Eryndor RPG",
+  description: "An AI powered text-based RPG",
+  // icons: {
+  //   icon: "/favicon.ico", // Path relative to the public directory
+  // },
 };
 
 export default function RootLayout({
